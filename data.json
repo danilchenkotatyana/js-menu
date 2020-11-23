@@ -1,0 +1,63 @@
+data = ({
+    "menu": [
+      {
+        "name": "cycles",
+        "url": "https://www.fahrrad.de/fahrraeder/",
+        "type": [
+          {
+            "name": "mountain bikes",
+            "url": "https://www.fahrrad.de/fahrraeder/mountainbikes/",
+            "type": [
+              {
+                "name": "MTB Hardtails",
+                "url": "https://www.fahrrad.de/fahrraeder/mountainbikes/mtb-hardtails/"
+              },
+              {
+                "name": "MTB Fullys",
+                "url": "https://www.fahrrad.de/fahrraeder/mountainbikes/mtb-fullys/"
+              },
+              {
+                "name": "MTB 26 inches",
+                "url": "https://www.fahrrad.de/fahrraeder/mountainbikes/mtb-26-zoll/"
+              },
+              {
+                "name": "MTB 29 inches",
+                "url": "https://www.fahrrad.de/fahrraeder/mountainbikes/mtb-29-zoll/"
+              },
+              {
+                "name": "BMX Bikes",
+                "url": "https://www.fahrrad.de/fahrraeder/cityraeder/bmx-bikes/"
+              }
+            ]
+          },
+          {
+            "name": "raicing bikes",
+            "url": "https://www.fahrrad.de/fahrraeder/rennraeder/",
+            "type": [
+              {
+                "name": "Road racing bikes",
+                "url": "https://www.fahrrad.de/fahrraeder/rennraeder/strassenrennraeder/"
+              },
+              {
+                "name": "Triathlon bikes",
+                "url": "https://www.fahrrad.de/fahrraeder/rennraeder/triathlonraeder/"
+              }
+            ]
+          },
+          {
+            "name": "e-bikes",
+            "url": "https://www.fahrrad.de/fahrraeder/e-bikes/"
+          }
+        ]
+      },
+      {
+        "name": "E-Bikes",
+        "url": "https://www.fahrrad.de/fahrraeder/e-bikes/"
+      },
+      {
+        "name": "Clothing",
+        "url": "https://www.fahrrad.de/bekleidung/"
+      }
+    ]
+  }
+  )
