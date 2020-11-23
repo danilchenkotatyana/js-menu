@@ -89,16 +89,6 @@ app.innerHTML =
     })
     .join("") +
   "</ul>";
-
-// const toggleArrow = document.querySelector(".arrow");
-
-// toggleArrow.onclick = function (e) {
-//   e.preventDefault();
-//   if (e.target == this){
-//     this.nextSibling.classList.toggle("open");
-//     this.classList.toggle("on");
-//   }
-// };
 const arrElemntes = document.querySelectorAll(".arrow");
 arrElemntes.forEach(function (item) {
   item.onclick = function (e) {
