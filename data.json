@@ -1,4 +1,4 @@
-data = ({
+data = {
     "menu": [
       {
         "name": "cycles",
@@ -60,4 +60,3 @@ data = ({
       }
     ]
   }
-  )

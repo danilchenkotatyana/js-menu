@@ -1,9 +1,3 @@
-"use strict";
-document.addEventListener("DOMContentLoaded", async function () {
-  data = JSON.stringify(data); //parse
-  return data;
-});
-
 const openIcon = document.querySelector(".openIcon");
 openIcon.onclick = function (e) {
   e.preventDefault();
@@ -16,86 +10,46 @@ closeIcon.onclick = function (e) {
   document.querySelector("nav").classList.remove("nav__open");
 };
 
+function buildSubitem1(subitem1, subindex1) {
+  const subitem1Html = `<li key='${subindex1}'><a href='${subitem1.url}'>${subitem1.name}</a></li>`;
+  return subitem1Html;
+}
+
+function buildSubitem(subitem, subindex) {
+  const subitem1 = subitemData1();
+  function subitemData1() {
+    subitem.type && subitem.type.length
+      ? `<div class="arrow"></div><ul class="submenu1">` +
+        subitem.type.map(buildSubitem1).join("") +
+        `</ul>`
+      : [];
+  }
+  const subitemHtml = `<li key='${subindex}'><a href='${subitem.url}'>${subitem.name}</a>${subitem1}</li>`;
+  return subitemHtml;
+}
+
 const app = document.querySelector(".nav__body");
 app.innerHTML =
-  "<ul>" +
-  data.menu
-    .map((item, index) => {
-      const subitemData = () => {
-        if (item.type && item.type.length) {
-          return (
-            '<div class="arrow"></div>' +
-            '<ul class="submenu">' +
-            item.type
-              .map((subitem, subindex) => {
-                const subitemData1 = () => {
-                  if (subitem.type && subitem.type.length) {
-                    return (
-                      '<div class="arrow"></div>' +
-                      '<ul class="submenu1">' +
-                      subitem.type
-                        .map((subitem1, subindex1) => {
-                          const subitem1Html =
-                            '<li key="' +
-                            subindex1 +
-                            '">' +
-                            '<a href="' +
-                            subitem1.url +
-                            '">' +
-                            subitem1.name +
-                            "</a>" +
-                            "</li>";
-                          return subitem1Html;
-                        })
-                        .join("") +
-                      "</ul>"
-                    );
-                  } else {
-                    return [];
-                  }
-                };
-                const subitemHtml =
-                  '<li key="' +
-                  subindex +
-                  '">' +
-                  '<a href="' +
-                  subitem.url +
-                  '">' +
-                  subitem.name +
-                  "</a>" +
-                  subitemData1() +
-                  "</li>";
-                return subitemHtml;
-              })
-              .join("") +
-            "</ul>"
-          );
-        } else {
-          return [];
-        }
-      };
-      const itemHtml =
-        '<li key="' +
-        index +
-        '">' +
-        '<a href="' +
-        item.url +
-        '">' +
-        item.name +
-        "</a>" +
-        subitemData() +
-        "</li>";
+  `<ul>` +
+  data.menu.map((item, index) => {
+      const subitems = subitemData();
+      function subitemData() {
+        item.type && item.type.length
+          ? `<div class="arrow"></div><ul class="submenu">` +
+            item.type.map(buildSubitem).join("") +
+            `</ul>`
+          : [];
+      }
+      const itemHtml = `<li key='${index}'><a href='${item.url}'>${item.name}</a>${subitems}</li>`;
       return itemHtml;
-    })
-    .join("") +
-  "</ul>";
+    }).join("") +
+  `</ul>`;
+
 const arrElemntes = document.querySelectorAll(".arrow");
 arrElemntes.forEach(function (item) {
   item.onclick = function (e) {
     e.preventDefault();
-    if (e.target == this) {
-      this.nextSibling.classList.toggle("open");
-      this.classList.toggle("on");
-    }
+    e.target == this && this.nextSibling.classList.toggle("open");
+    this.classList.toggle("on");
   };
 });
